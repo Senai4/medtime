@@ -1,0 +1,220 @@
+/* Define o box-sizing como border-box para todos os elementos — inclui padding e border no tamanho total */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilização do body para centralizar o conteúdo na tela */
+body {
+  background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+  font-family: 'Segoe UI', sans-serif; /* Fonte legível e moderna */
+  display: flex; /* Usando flexbox para centralizar */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+  align-items: center; /* Alinha verticalmente ao centro */
+  height: 100vh; /* Altura da viewport inteira */
+  margin: 0; /* Remove margens padrão */
+}
+
+/* Container principal que engloba os formulários */
+.container {
+  background: #fff; /* Fundo branco */
+  border-radius: 20px; /* Bordas arredondadas */
+  box-shadow: 
+    0 8px 16px rgba(0,0,0,0.15), /* Sombra leve */
+    0 5px 5px rgba(0,0,0,0.12);  /* Sombra adicional */
+  position: relative; /* Necessário para posicionamento absoluto dos filhos */
+  overflow: hidden; /* Esconde conteúdo que ultrapassar */
+  width: 1000px; /* Largura base */
+  max-width: 100%; /* Garante responsividade */
+  min-height: 600px; /* Altura mínima */
+}
+
+/* Contêiner base para os dois formulários */
+.form-container {
+  position: absolute; /* Para sobreposição */
+  top: 0;
+  height: 100%;
+  width: 50%; /* Ocupa metade do container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+  text-align: center;
+  transition: all 0.6s ease-in-out; /* Suaviza as transições */
+}
+
+/* Formulário de login (inicialmente visível) */
+.sign-in-container {
+  left: 0; /* Posicionado à esquerda */
+  opacity: 1; /* Totalmente visível */
+  z-index: 2; /* Na frente */
+  transform: translateX(0);
+}
+
+/* Formulário de cadastro (inicialmente escondido) */
+.sign-up-container {
+  left: 50%; /* Posicionado à direita */
+  opacity: 0; /* Invisível */
+  z-index: 1; /* Atrás do login */
+  transform: translateX(100%); /* Fora da tela */
+  pointer-events: none; /* Não pode ser clicado */
+}
+
+/* Quando o painel direito está ativo (usuário quer se cadastrar) */
+.container.right-panel-active .sign-in-container {
+  transform: translateX(-100%); /* Move para fora da tela */
+  opacity: 0;
+  pointer-events: none; /* Desativa interações */
+  z-index: 1;
+}
+
+/* Mostra o formulário de cadastro */
+.container.right-panel-active .sign-up-container {
+  transform: translateX(0); /* Traz para o centro */
+  opacity: 1;
+  pointer-events: all; /* Ativa interações */
+  z-index: 2;
+}
+
+/* Estilização padrão dos formulários */
+form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Estilo dos campos de entrada */
+input {
+  background-color: #eee; /* Cor suave */
+  border: none;
+  padding: 15px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 25px; /* Bordas arredondadas */
+}
+
+/* Estilo base dos botões */
+button {
+  border-radius: 25px;
+  border: none;
+  background-color: #024f87; /* Azul moderno */
+  color: white;
+  font-size: 14px;
+  padding: 12px 40px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 80ms ease-in; /* Pequena animação ao clicar */
+}
+
+/* Botão transparente com borda — usado na overlay */
+button.ghost {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+/* Contêiner do overlay que cobre metade da tela */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Começa na metade direita */
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100; /* Fica acima dos formulários */
+}
+
+/* Move o overlay para a esquerda quando ativo */
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+/* Estilo do painel azul com textos de transição */
+.overlay {
+  background: #024f87;
+  color: white;
+  position: relative;
+  left: -100%; /* Começa fora da tela */
+  height: 100%;
+  width: 200%; /* Duas vezes o tamanho do overlay-container */
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Move o overlay para o centro quando ativado */
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+/* Painel interno do overlay (conteúdo) */
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  padding: 0 40px;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Painel da esquerda (login) */
+.overlay-left {
+  transform: translateX(-20%);
+  left: 0;
+}
+
+/* Quando ativado, traz o painel da esquerda de volta */
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+/* Painel da direita (cadastro) */
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Quando ativado, move o painel da direita */
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* Logo */
+.logo-header {
+  display: flex; /* Usa o Flexbox para alinhar os itens filhos */
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: center; /* Centraliza horizontalmente; pode trocar para flex-start para alinhar à esquerda */
+  padding: 25px 20px 0 20px; /* Espaçamento interno: 10px em cima, 20px nas laterais, 0 embaixo */
+  margin-top: -500px; /* Move o elemento para cima (valor negativo) */
+}
+
+.logo-header img {
+  max-height: 370px; /* Define a altura máxima da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  width: auto; /* Impede que a largura estique */
+  cursor: pointer;
+}
+
+.logo-header img:hover {
+  transform: scale(1.05); /* efeito de leve aumento ao passar o mouse */
+}
+
+.class-item {
+  position: absolute; /* Permite posicionamento livre dentro do container pai */
+  top: 0; /* Encosta no topo do container pai */
+  height: 100%; /* Ocupa toda a altura do container pai */
+  width: 100%; /* Ocupa toda a largura do container pai */
+  display: flex; /* Usa Flexbox para alinhar os elementos filhos */
+  flex-direction: column; /* Organiza os itens em coluna */
+  justify-content: center; /* Centraliza os itens verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  padding: 0 50px; /* Espaçamento interno apenas nas laterais (esquerda e direita) */
+  text-align: center; /* Centraliza o texto */
+  transition: all 0.6s ease-in-out; /* Suaviza qualquer transição nas propriedades suportadas */
+}

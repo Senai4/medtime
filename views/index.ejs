@@ -1,6 +1,130 @@
-<%- include ("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/style.css" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
 <body>
-    <%- include ("partials/navbar.ejs") %>
-    <h1>Estilo do bootstrap</h1>
+  <div class="nav">
+    <!-- Botão do menu hamburguer -->
+    <div class="menuImg" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Menu que será exibido/ocultado -->
+    <div class="menu-mobile" id="mobileMenu">
+      <a href="/sobre">Sobre Nós</a>
+      <a href="/curiosidades">Curiosidades</a>
+      <a href="#">Escanear QrCode</a>
+      <a href="#">Administrador</a>
+    </div>
+
+     <!-- Logo -->
+    <div class="logo">
+      <img src="/image/Logo.png" alt="Logo" />
+    </div> 
+
+    <!-- Barra de pesquisa -->
+    <form>
+        <i class="fas fa-search"></i>
+        <input type="text" class="input" placeholder="Procurando alguma coisa?" />
+    </form>
+
+    <!-- Icone de Login -->
+    <div class="user">
+      <a href="/login">
+        <img src="image/user.png" alt="Logo">
+      </a>
+    </div>
+  </div>
+  
+    <!-- Carrossel -->
+<div class="carousel">
+    <div class="carousel-images" id="carouselImages">
+        <img src="banner.png" alt="Imagem+1">
+        <img src="banner2.png" alt="Imagem 2">
+        <img src="banner3.png" alt="Imagem 3">
+        <img src="banner4.png" alt="Imagem 4">
+        <img src="banner5.png" alt="Imagem 5">
+    </div>
+
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<div class="dots">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+</div>
+
+  <!-- Perguntas -->
+<div class="perguntas-container">
+  <details class="faq">
+    <summary> Para que serve o site MedTime?</summary>
+    <p>O MedTime foi desenvolvido para ajudar os usuários a gerenciar seus medicamentos, organizando horários, doses e lembretes. Ele também permite o cadastro de receitas com QR Code, facilitando o controle do tratamento.</p>
+  </details>
+
+  <details class="faq">
+    <summary> O site é responsivo e funciona em diferentes dispositivos?</summary>
+    <p>Sim. O MedTime foi projetado com layout responsivo, o que permite o uso em computadores, tablets e celulares sem perda de qualidade visual ou funcionalidade.</p>
+  </details>
+
+  <details class="faq">
+    <summary> Como funciona o sistema de leitura por QR Code?</summary>
+    <p>O usuário pode escanear um QR Code presente na receita médica. O sistema interpreta os dados e preenche automaticamente o nome do medicamento, posologia e horários sugeridos, economizando tempo e evitando erros manuais.</p>
+  </details>
+
+  <details class="faq">
+    <summary> Quem pode usar o MedTime?</summary>
+    <p>Qualquer pessoa que precise organizar seus medicamentos pode usar o MedTime, especialmente útil para idosos, cuidadores, pessoas com doenças crônicas ou qualquer usuário que deseje melhorar sua rotina de tratamento.</p>
+  </details>
+
+   <details class="faq">
+    <summary> Os dados do usuário estão protegidos?</summary>
+    <p>Sim. O MedTime utiliza práticas básicas de segurança, como criptografia de senhas e controle de acesso por login, garantindo que os dados de cada usuário fiquem protegidos.</p>
+  </details>
+
+   <details class="faq">
+    <summary> Como o MedTime pode ajudar no dia a dia do usuário?</summary>
+    <p>O MedTime facilita a organização da rotina de medicação, evitando esquecimentos e erros de dose. Com lembretes automáticos, leitura rápida de receitas por QR Code e uma interface simples, ele promove mais segurança e autonomia para o usuário no tratamento médico diário.</p>
+  </details>
+</div>
+</div>
+ <!-- Carrossel de Marcas -->
+<div class="logo-carousel">
+  <div class="logo-track" id="logoTrack">
+    <div class="logo-item"><img src="logo1.png" alt="Logo 1" /></div>
+    <div class="logo-item"><img src="logo2.png" alt="Logo 2" /></div>
+    <div class="logo-item"><img src="logo3.png" alt="Logo 3" /></div>
+    <div class="logo-item"><img src="logo4.png" alt="Logo 4" /></div>
+    <div class="logo-item"><img src="logo5.png" alt="Logo 5" /></div>
+
+    <div class="logo-item"><img src="logo1.png" alt="Logo 1" /></div>
+    <div class="logo-item"><img src="logo2.png" alt="Logo 2" /></div>
+    <div class="logo-item"><img src="logo3.png" alt="Logo 3" /></div>
+    <div class="logo-item"><img src="logo4.png" alt="Logo 4" /></div>
+    <div class="logo-item"><img src="logo5.png" alt="Logo 5" /></div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="social-icons">
+      <a href="https://instagram.com/medtime.3" target="_blank" class="icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank" class="icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" class="icon"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
 </body>
-<%- include ("partials/footer.ejs") %> 
+<script src="/js/script.js"></script>
+</html>

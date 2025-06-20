@@ -1,0 +1,6 @@
+<h2>Lista de Medicamentos</h2>
+<ul>
+    <% medicamentos.forEach(med => { %>
+    <li><strong><%= med.nome %></strong>: <%= med.descricao %></li>
+     <% }) %>
+</ul>

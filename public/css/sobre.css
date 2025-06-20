@@ -1,0 +1,331 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+
+footer {
+  border: 1px solid white;
+}
+
+.nav {
+    border: 1px solid white;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Estilo para a logo */
+.logo img {
+    height: 190px; /* Ajuste o tamanho conforme necessário */
+    width: auto; /* Mantém a proporção da imagem */
+    margin-left: 40px;
+    display: flex;
+}
+
+
+.menu {
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.menuhamb img {
+    width: 40px;
+    cursor: pointer;
+    display: flex;
+}
+
+.menuhamb {
+    display: flex;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menu lateral */
+.menu-mobile {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 280px;
+    height: auto;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+    z-index: 999;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.menu-mobile.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-mobile a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: background 0.2s ease-in-out;
+}
+
+.menu-mobile a:hover {
+    background-color: #052659;
+}
+
+.menuImg{
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Barra de pesquisa */
+form {
+    position: absolute; /* necessário pra centralizar */
+    left: 50%; /* move até o centro */
+    transform: translateX(-50%); /* ajusta exatamente no centro */
+    width: 700px;
+    height: 40px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 5s;
+    flex-shrink: 0;
+}
+
+form i {
+    font-size: 20px;   /* Tamanho maior */
+    color: #6c6e6d;  /* Cinza escuro */
+    margin-left: 5px;  /* Distância da borda esquerda */
+    margin-right: 1px; /* Espaço entre o ícone e o input */
+    margin-top: 3px;   /* Desce um pouco o ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+/* Input da pesquisa */
+.input {
+    width: 100%;
+    height: 35px;
+    line-height: 30px;
+    font-size: 1.2em;
+    border-radius: 20px;
+    margin-top: 2px; 
+    padding: 0 20px;
+    border: none;
+    outline: none;
+}
+
+/* Icone de Login */
+.user {
+    margin-left: auto;
+    display: flex;
+    margin-right: 120px;
+    cursor: pointer;
+}
+
+/* Container */
+.container {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.container h1 {
+  margin-bottom: 40px;
+  color: #004f4f;
+}
+
+/* Grade dos cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+  align-items: stretch; /* estica os cards na mesma altura da linha */
+}
+
+/* Estilo base do card */
+.card {
+  border: 3px solid #052659;
+  padding: 30px;
+  background-color: white;
+  color: #052659;
+  text-align: left;
+  font-size: 16px;
+  min-height: 290px; /* AUMENTADO */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.h1 {
+  color: white;
+  text-align: center;
+  margin-top: 40px;   /* espaço entre a navbar e o título */
+  margin-bottom: 20px; /* espaço entre o título e os cards */
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card p {
+  font-size: 16px;        /* Aumenta o tamanho do texto */
+  text-align: justify;    /* Alinha o texto dos dois lados */
+  line-height: 1.6;       /* Espaçamento entre linhas para melhor leitura */
+}
+
+/* Cantos personalizados */
+.card:nth-child(1) {
+  border-radius: 15px 15px 15px 15px;
+}
+
+.card:nth-child(2) {
+  border-radius: 15px 15px 15px 15px;
+}
+
+.card:nth-child(3) {
+  grid-column: 1 / 2;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.imagem {
+  grid-column: 2 / 3;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid #052659; /* mudou de dashed para solid */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+.imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%; /* Faz a imagem ter o mesmo arredondamento do container */
+}
+
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center;
+
+    /* Removendo a fixação */
+    position: relative;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
+
+    /* Espaço acima do footer */
+    margin-top: 35px; /* Ajuste esse valor conforme necessário */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* mais espaço entre os ícones */
+  margin-top: 5px;
+}
+
+.social-icons .icon {
+  background-color: #ffffff;         /* bolha branca */
+  color: #052659;                    /* cor do ícone */
+  font-size: 24px;                   /* ícone maior */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;               /* formato de bolha (círculo) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons .icon:hover {
+  background-color: #052659;       /* bolha muda de cor */
+  color: #ffffff;                  /* ícone muda para branco */
+  transform: scale(1.1);           /* leve zoom ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+    align-items: center; /* centraliza os cards horizontalmente */
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px; /* limita a largura máxima para centralizar e evitar ficar muito largo */
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    color: #052659;
+  }
+
+  .card p, .card .content {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    color: #333;
+  }
+}

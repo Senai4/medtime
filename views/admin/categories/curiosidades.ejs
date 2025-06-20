@@ -1,0 +1,12 @@
+<h2>Curiosidades</h2>
+<ul>
+    <% Curiosidades.forEach(curiosidades => { %>
+        <li><%= curiosidades.texto %></li>
+    <% }) %>
+</ul>
+
+<h2>Adicionar Curiosidades</h2>
+<form action="/curiosidades/adicionar" method="POST">
+<textarea name="texto" placeholder="Texto da curiosidades" required></textarea>
+<button type="submit">Adicionar</button>
+</form>

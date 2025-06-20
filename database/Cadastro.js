@@ -10,10 +10,6 @@ const Cadastro = connection.define("cadastro", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    código: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     senha: {
         type: Sequelize.STRING,
         allowNull: false

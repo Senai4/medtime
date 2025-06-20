@@ -1,0 +1,419 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+
+.nav {
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Estilo para a logo */
+.logo img {
+    height: 190px; /* Ajuste o tamanho conforme necessário */
+    width: auto; /* Mantém a proporção da imagem */
+    margin-left: 40px;
+    display: flex;
+}
+
+
+.menu {
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.menuhamb img {
+    width: 40px;
+    cursor: pointer;
+    display: flex;
+}
+
+.menuhamb {
+    display: flex;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menu lateral */
+.menu-mobile {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 280px;
+    height: auto;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+    z-index: 999;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.menu-mobile.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-mobile a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: background 0.2s ease-in-out;
+}
+
+.menu-mobile a:hover {
+    background-color: #052659;
+}
+
+.menuImg{
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Barra de pesquisa */
+form {
+    position: absolute; /* necessário pra centralizar */
+    left: 50%; /* move até o centro */
+    transform: translateX(-50%); /* ajusta exatamente no centro */
+    width: 700px;
+    height: 40px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 5s;
+    flex-shrink: 0;
+}
+
+form i {
+    font-size: 20px;   /* Tamanho maior */
+    color: #6c6e6d;  /* Cinza escuro */
+    margin-left: 5px;  /* Distância da borda esquerda */
+    margin-right: 1px; /* Espaço entre o ícone e o input */
+    margin-top: 3px;   /* Desce um pouco o ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+/* Input da pesquisa */
+.input {
+    width: 100%;
+    height: 35px;
+    line-height: 30px;
+    font-size: 1.2em;
+    border-radius: 20px;
+    margin-top: 2px; 
+    padding: 0 20px;
+    border: none;
+    outline: none;
+}
+
+/* Icone de Login */
+.user {
+    margin-left: auto;
+    display: flex;
+    margin-right: 120px;
+    cursor: pointer;
+}
+
+/* Carrossel */
+.carousel {
+  position: relative;
+  max-width: 1700px; /* ajuste conforme sua necessidade */
+  height: 400px;
+  margin: 40px auto;
+  background-color: white;
+  border-radius: 20px; /* cantos arredondados do carrossel */
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* width do container vai depender de quantas imagens você tem e largura de cada uma */
+}
+
+.carousel-images img {
+  width: 1700px; /* mesmo tamanho do carrossel */
+  height: 400px; /* ajuste conforme sua imagem */
+  object-fit: cover;
+  border-radius: 20px; /* cantos arredondados da imagem */
+  flex-shrink: 0;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: 2.5rem;
+  color: #005959; /* tom azul esverdeado parecido com o da imagem */
+  cursor: pointer;
+  user-select: none;
+  padding: 0 10px;
+  z-index: 10;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #005959; /* cor do dot ativo */
+}
+
+/* Perguntas */
+.perguntas-container {
+  max-width: 1500px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* espaço entre os blocos */
+}
+
+.faq {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  padding: 25px 20px; /* Aumentei o padding para aumentar a altura do bloco */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.faq[open] {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.faq summary {
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Adicionando um espaço para a seta */
+}
+
+.faq summary::-webkit-details-marker {
+  display: none; /* Remove a setinha padrão */
+}
+
+/* Adicionando a seta personalizada */
+.faq summary::before {
+  content: '\2B9F'; /* Símbolo de seta para baixo */
+  font-size: 20px; /* Ajuste o tamanho da seta */
+  color: #444; /* Cor suave para a seta */
+  margin-right: 5px;
+  transition: transform 0.3s ease; /* Transição suave para rotação */
+}
+
+.faq[open] summary::before {
+  transform: rotate(-180deg); /* Roda a seta para cima quando o FAQ estiver aberto */
+}
+
+.faq p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Carrossel de Marcas */
+.logo-carousel {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  gap: 30px;
+  width: fit-content;
+  animation: scrollLogos 20s linear infinite;
+}
+
+.logo-item {
+  min-width: 230px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #ddd;
+  transition: transform 0.1s ease;
+}
+
+.logo-item img {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to right, #024f87, #0f939b, #7DA0CA);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center;
+
+    /* Removendo a fixação */
+    position: relative;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
+
+    /* Espaço acima do footer */
+    margin-top: 40px; /* Ajuste esse valor conforme necessário */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* mais espaço entre os ícones */
+  margin-top: 5px;
+}
+
+.social-icons .icon {
+  background-color: #ffffff;         /* bolha branca */
+  color: #052659;                    /* cor do ícone */
+  font-size: 24px;                   /* ícone maior */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;               /* formato de bolha (círculo) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons .icon:hover {
+  background-color: #052659;       /* bolha muda de cor */
+  color: #ffffff;                  /* ícone muda para branco */
+  transform: scale(1.1);           /* leve zoom ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    .carousel {
+      width: 90%; /* No caso de telas menores, o card ocupa 45% da largura */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel {
+      width: 90%; /* Para telas muito pequenas, os cards vão ocupar 90% da largura */
+    }
+} 
+
+@media (max-width: 768px) {
+.logo img {
+  height: 200px;    /* aumenta o tamanho da altura */
+  width: 115px;      /* largura ajusta proporcionalmente */
+  object-fit: contain;
+  display: block;
+  margin-left: 17px; /* empurra a logo para a direita */
+}
+
+    form {
+        max-width: 400px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menuhamb {
+        display: flex;
+        width: 50px;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .user {
+      margin-left: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        max-width: 400px;
+        height: 35px;
+        padding: 5px 10px;
+    }
+}

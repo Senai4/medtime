@@ -1,0 +1,19 @@
+<%- include("layout") %>
+
+<h2>Painel Administrativo</h2>
+
+<form action="/medicamento/adicionar" method="POST">
+    <h3>Cadastrar Medicamento</h3>
+    <input type="text" name="nome" placeholder="Nome do medicamento" required>
+    <input type="text" name="descricao" placeholder="Descrição" required>
+    <button type="submit">Cadastrar Medicamentos</button>
+</form>
+
+<form action="/curiosidade/adicionar" method="POST">
+    <h3>Cadastrar Curiosidade</h3>
+    <input name="text" placeholder="Curiosidade" required>
+    <textarea name="texto" placeholder="Descrição" required></textarea>
+    <button type="submit">Cadastrar Curiosidade</button>
+</form>
+
+<a href="admin/logout">Sair</a>

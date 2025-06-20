@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro e Login</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <div class="container" id="container">
+
+    <!-- Formulário de Cadastro -->
+    <div class="form-container sign-up-container">
+      <form method="POST" action="/cadastro">
+        <h1>Criar Conta</h1>
+        <input type="text" placeholder="Nome" name="nome" required />
+        <input type="email" placeholder="Email" name="email" required />
+        <input type="password" placeholder="Senha" name="senha" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <!-- Formulário de Login -->
+    <div class="form-container sign-in-container">
+      <form method="POST" action="/login">
+        <h1>Login</h1>
+        <input type="email" placeholder="Email" name="email" required />
+        <input type="password" placeholder="Senha" name="senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <!-- Painel Azul -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <!-- Painel Esquerdo: aparece quando cadastro está ativo -->
+        <div class="overlay-panel overlay-left">
+          <div class="logo-header">
+             <a href="/">
+            <img src="image/Logo.png" alt="MedTime">
+            </a>
+          </div>
+          <div class="class-item">
+            <h1>BEM-VINDO(A) AO NOSSO SITE!</h1>
+            <p>Já possui uma conta?</p>
+            <button class="ghost" id="signIn">Faça Login!</button>
+          </div>
+        </div>
+
+        <!-- Painel Direito: aparece quando login está ativo -->
+        <div class="overlay-panel overlay-right">
+          <div class="logo-header">
+            <a href="/">
+              <img src="image/Logo.png" alt="MedTime">
+            </a>
+          </div>
+          <div class="class-item">
+            <h1>BEM-VINDO(A) DE VOLTA!</h1>
+            <p>Ainda sem login?</p>
+            <button class="ghost" id="signUp">Cadastre-se</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <script src="/js/login.js"></script>
+</body>
+</html>
