@@ -153,11 +153,12 @@ form i {
 /* Carrossel */
 .carousel {
   position: relative;
-  max-width: 1700px; /* ajuste conforme sua necessidade */
-  height: 400px;
+  width: 100%;
+  max-width: 1700px;
+  height: 355px;
   margin: 40px auto;
   background-color: white;
-  border-radius: 20px; /* cantos arredondados do carrossel */
+  border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -165,20 +166,19 @@ form i {
 .carousel-images {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  /* width do container vai depender de quantas imagens você tem e largura de cada uma */
 }
 
 .carousel-images img {
-  width: 1700px; /* mesmo tamanho do carrossel */
-  height: 400px; /* ajuste conforme sua imagem */
-  object-fit: cover;
-  border-radius: 20px; /* cantos arredondados da imagem */
-  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .prev, .next {
   position: absolute;
-  top: 50%;
+  top: 49%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -371,15 +371,25 @@ form i {
 
 @media (max-width: 768px) {
     .carousel {
-      width: 90%; /* No caso de telas menores, o card ocupa 45% da largura */
-    }
+  width: 100%;
+  height: 100%; /* ou defina uma altura fixa/responsiva como: height: 300px; */
+  max-height: 100vh; /* Evita ultrapassar a altura da tela */
+  overflow: hidden;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 100%; /* Faz a imagem preencher toda a altura */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  display: block;
+}
   }
 
   @media (max-width: 480px) {
-    .carousel {
-      width: 90%; /* Para telas muito pequenas, os cards vão ocupar 90% da largura */
-    }
+      .carousel {
+  width: 90%;
 } 
+  }
 
 @media (max-width: 768px) {
 .logo img {
